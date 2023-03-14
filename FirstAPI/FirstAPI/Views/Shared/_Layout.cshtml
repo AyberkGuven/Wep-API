@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MyStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <header>
+        @Html.Partial("_MenuBar")
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <div>
+        @Html.Partial("_FooterBar")
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: 'Get',
+            url: 'https://localhost:44330/api/homeapi',
+            datatype: 'json',
+            success: function (response) {
+                response.forEach((user, index) => {
+                    let html =
+                        `<tr>
+                                <td><img src="../Images/${user.imagePath}" /></td>
+                                <td>${user.Kind}</td>
+                                <td>${user.treeNameId}</td>
+                                <td>${user.diseaseId}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary">Detay</button>
+                                </td>
+                            </tr>`;
+
+                    $("#bodyItem").append(html);
+                })
+            }
+        })
+    })
+    //$(function () {
+    //    window.onload = (function () {
+    //        $.ajax({
+    //            type: 'Get',
+    //            url: 'https://localhost:44330/api/homeapi',
+    //            datatype: 'json',
+    //            success: function (response) {
+    //                response.forEach((user, index) => {
+    //                    let html =
+    //                        `<tr>
+    //                            <td>${user.Id}</td>
+    //                            <td>${user.imagePath}</td>
+    //                            <td>${user.Kind}</td>
+    //                            <td>${user.treeNameId}</td>
+    //                            <td>${user.diseaseId}</td>
+    //                            <td>
+    //                                <button type="button" class="btn btn-primary">Detay</button>
+    //                            </td>
+    //                        </tr>`;
+
+    //                    $("#bodyItem").append(html);
+    //                })
+    //            }
+    //        })
+    //    })
+    //})
+</script>
