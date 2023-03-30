@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form" id="tblEdit" action="homeapi/Put" method="post" enctype="multipart/form-data">
+    <div class="container mt-3">
+        <div class="mb-3 mt-3">
+            <img src="~/Images/Meşe-Süngeri.jpg" class="img-thumbnail" />
+            <label for="File" class="form-label">Resminiz:</label>
+            <input type="file" class="form-control" id="File" name="File" />
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Kind" class="form-label">Türü:</label>
+            <select class="form-select" id="Kind" name="Kind">
+                <option value="1">Ağaç</option>
+                <option value="2">Bitki</option>
+            </select>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Name" class="form-label">Adı:</label>
+            <input type="text" class="form-control" placeholder="Adını Giriniz..." name="Name" id="Name" />
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Disease" class="form-label">Hastalığı:</label>
+            <select class="form-select" id="Disease" name="Disease">
+                <option value="1">Meşe Süngeri</option>
+                <option value="2">Kök Çürüğü</option>
+            </select>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Description">Tanımı:</label>
+            <textarea class="form-control" rows="5" id="Description" name="Description" placeholder="Tanımını Yazınız..."></textarea>
+        </div>
+        <div class="mb-3 mt-3">
+            <button type="button" class="btn btn-primary" id="btnUpdate">Güncelle</button>
+            <button type="button" class="btn btn-danger" id="btnDelete">Sil</button>
+        </div>
+    </div>
+</form>
+<script src="~/Scripts/MyJqueryPut.js"></script>
+<script src="~/Scripts/MyJqueryDelete.js"></script>

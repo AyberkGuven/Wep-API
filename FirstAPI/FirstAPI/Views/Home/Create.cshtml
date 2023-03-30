@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form" action="~/Home/Create" method="post" enctype="multipart/form-data">
+    <div class="container mt-3">
+        <input type="number" class="form-control" style="opacity: 0; color: #ffffff; position: fixed;" value="0" id="Id" name="Id">
+        <div class="mb-3 mt-3">
+            <label for="Image" class="form-label">Resminiz:</label>
+            <input type="file" class="form-control" id="Image" name="Image" />
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Kind" class="form-label">Türü:</label>
+            <select class="form-select" id="Kind" name="Kind">
+                <option value="1">Ağaç</option>
+                <option value="2">Bitki</option>
+            </select>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Name" class="form-label">Adı:</label>
+            <input type="text" class="form-control" placeholder="Adını Giriniz..." name="Name" id="Name" />
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Disease" class="form-label">Hastalığı:</label>
+            <select class="form-select" id="Disease" name="Disease">
+                <option value="1">Meşe Süngeri</option>
+                <option value="2">Kök Çürüğü</option>
+            </select>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Description">Tanımı:</label>
+            <textarea class="form-control" rows="5" id="Description" name="Description" placeholder="Tanımını Yazınız..."></textarea>
+        </div>
+        <div class="mb-3 mt-3">
+            <button type="button" class="btn btn-primary" id="btnCreateDetail" onclick="createDetail()">Kaydet</button>
+        </div>
+    </div>
+</form>
+<script src="~/Scripts/MyJqueryPost.js"></script>

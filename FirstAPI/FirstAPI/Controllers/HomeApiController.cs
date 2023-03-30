@@ -24,7 +24,7 @@ namespace FirstAPI.Controllers
         }
 
         [ResponseType(typeof(IEnumerable<DetailsByIdViewModel>))]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult GetId(int id)
         {
             var details = plantDAL.GetDetailsById(id);
             if (details == null)
